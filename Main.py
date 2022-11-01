@@ -12,19 +12,19 @@ def insert(root, new_value) -> BinaryTreeNode:
         Finally, return the root.
         """
     # Write your code here
-    if root not None:
-        if new_value>root.data:
-            if root.right_child is None:
-                root.right_child=BinaryTreeNode(new_value)
-            else:
-                root.right_child=insert(root.right_child,new_value)
-        else:
-            if root.left_child is None:
-            root.left_child=BinaryTreeNode(new_value)
-            else:
-            root.left_child=insert(root.left_child,new_value)
+   if not root:
+        root = BinaryTreeNode(new_value)
+        return root
+    if new_value < root.data:
+         if root.left_child:
+            insert(root.left_child, new_value)
+         else:
+            root.left_child = BinaryTreeNode(new_value)
     else:
-        root=BinaryTreeNode(new_value)
+        if root.right_child:
+            insert(root.right_child, new_value)
+        else:
+            root.right_child = BinaryTreeNode(new_value)
     
                              
 
